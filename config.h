@@ -99,9 +99,21 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,		XK_q,      quit,           {0} },
-	{0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-")},
-    	{0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+")},
-    	{0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle")},
+	/* CUSTOM */
+	{ MODKEY,			XK_m,		spawn,		SHCMD("st" " -e ncmpcpp-ueberzug") },
+	{ 0, XF86XK_AudioPrev,	      spawn, SHCMD("mpc prev") },
+	{ 0, XF86XK_AudioNext,	      spawn, SHCMD("mpc next") },
+	{ 0, XF86XK_AudioPlay,	      spawn, SHCMD("mpc toggle") },
+	{ 0, XF86XK_Tools,	      spawn, SHCMD("st" " -e ncmpcpp-ueberzug") },
+	{ MODKEY,			XK_slash,	spawn,		SHCMD("mpc repeat") },
+	{ MODKEY|ShiftMask,		XK_slash,	spawn,		SHCMD("mpc single") },
+	{ MODKEY,			XK_n,	        spawn,		SHCMD("notes") },
+	{ MODKEY,			XK_b,	        spawn,		SHCMD("emoji") },
+	{ MODKEY,			XK_v,	        spawn,		SHCMD("scmenu") },
+	{ MODKEY,			XK_c,	        spawn,		SHCMD("logout.sh") },
+	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
+    	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
+    	{ 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
 };
 
 /* button definitions */

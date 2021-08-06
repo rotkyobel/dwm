@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 7;        /* gaps between windows */
+static const unsigned int snap      = 30;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "JetbrainsMono Nerd Font:style=medium:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
-static const char dmenufont[]       = "JetbrainsMono Nerd Font:style=medium:size=10";
+static const char *fonts[]          = { "Sarasa Mono K:style=medium:size=11", "Blobmoji:pixelsize=11:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Sarasa Mono K:style=medium:size=11";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -21,6 +21,7 @@ static const Rule rules[] = {
 	 */
 	/* class             instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",            NULL,       NULL,       0,            1,           -1 },
+	{ "obs",             NULL,       NULL,       0,            1,           -1 },
 	{ "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
 	{ "firefox",         NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "discord",         NULL,       NULL,       1 << 5,       0,           -1 },
@@ -104,7 +105,7 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioPrev,	      spawn, SHCMD("mpc prev") },
 	{ 0, XF86XK_AudioNext,	      spawn, SHCMD("mpc next") },
 	{ 0, XF86XK_AudioPlay,	      spawn, SHCMD("mpc toggle") },
-	{ 0, XF86XK_Tools,	      spawn, SHCMD("st" " -e ncmpcpp-ueberzug") },
+	{ 0, XF86XK_Tools,	      spawn, SHCMD("st" " -e ncmpcpp") },
 	{ MODKEY,			XK_slash,	spawn,		SHCMD("mpc repeat") },
 	{ MODKEY|ShiftMask,		XK_slash,	spawn,		SHCMD("mpc single") },
 	{ MODKEY,			XK_n,	        spawn,		SHCMD("notes") },

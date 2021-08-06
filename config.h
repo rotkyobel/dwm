@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 7;        /* gaps between windows */
-static const unsigned int snap      = 30;       /* snap pixel */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 3;        /* gaps between windows */
+static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Sarasa Mono K:style=medium:size=11", "Blobmoji:pixelsize=11:antialias=true:autohint=true" };
@@ -66,9 +66,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_g,      togglebar,      {0} },
-        { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-        { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-        { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+  { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+  { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+  { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_f,	   zoom,           {0} },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
@@ -113,8 +113,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_v,	        spawn,		SHCMD("scmenu") },
 	{ MODKEY,			XK_c,	        spawn,		SHCMD("logout.sh") },
 	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
-    	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
-    	{ 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
+  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
+  { 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
 };
 
 /* button definitions */

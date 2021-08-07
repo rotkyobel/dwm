@@ -12,7 +12,7 @@ static const char dmenufont[]       = "Sarasa Mono K:style=medium:size=11";
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
-static const char *tags[] = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 " };
+static const char *tags[] = { "일", "이", "삼", "사", "오", "육" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -25,6 +25,7 @@ static const Rule rules[] = {
 	{ "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
 	{ "firefox",         NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "discord",         NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "gksu",            NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -69,17 +70,17 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
   { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
   { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
-	{ MODKEY,                       XK_f,	   zoom,           {0} },
+	{ MODKEY,                       XK_f,	     zoom,           {0} },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
-	{ MODKEY,		        XK_q,      killclient,     {0} },
+	{ MODKEY,		                    XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_r,  	   togglefloating, {0} },
 	{ MODKEY,                       XK_t,  	   setlayout,      {0} },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,			XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			                  XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -87,9 +88,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_minus,  setgaps,	   {.i = -1 } },
-	{ MODKEY,			XK_equal,  setgaps,	   {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_equal,  setgaps,	   {.i =  0 } },
+	{ MODKEY,			                  XK_minus,  setgaps,	       {.i = -1 } },
+	{ MODKEY,			                  XK_equal,  setgaps,	       {.i = +1 } },
+	{ MODKEY|ShiftMask,		          XK_equal,  setgaps,	       {.i =  0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -99,22 +100,22 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,		XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,		          XK_q,      quit,           {0} },
 	/* CUSTOM */
-	{ MODKEY,			XK_m,		spawn,		SHCMD("st" " -e ncmpcpp-ueberzug") },
-	{ 0, XF86XK_AudioPrev,	      spawn, SHCMD("mpc prev") },
-	{ 0, XF86XK_AudioNext,	      spawn, SHCMD("mpc next") },
-	{ 0, XF86XK_AudioPlay,	      spawn, SHCMD("mpc toggle") },
-	{ 0, XF86XK_Tools,	      spawn, SHCMD("st" " -e ncmpcpp") },
-	{ MODKEY,			XK_slash,	spawn,		SHCMD("mpc repeat") },
-	{ MODKEY|ShiftMask,		XK_slash,	spawn,		SHCMD("mpc single") },
-	{ MODKEY,			XK_n,	        spawn,		SHCMD("notes") },
-	{ MODKEY,			XK_b,	        spawn,		SHCMD("emoji") },
-	{ MODKEY,			XK_v,	        spawn,		SHCMD("scmenu") },
-	{ MODKEY,			XK_c,	        spawn,		SHCMD("logout.sh") },
-	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("amixer set Master 5%-") },
-  { 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+") },
-  { 0, XF86XK_AudioMute, spawn, SHCMD("amixer set Master toggle") },
+	{ MODKEY,			                  XK_m,		spawn,		SHCMD("st" " -e ncmpcpp-ueberzug") },
+	{ 0, XF86XK_AudioPrev,	        spawn, SHCMD("mpc prev") },
+	{ 0, XF86XK_AudioNext,	        spawn, SHCMD("mpc next") },
+	{ 0, XF86XK_AudioPlay,	        spawn, SHCMD("mpc toggle") },
+	{ 0, XF86XK_Tools,	            spawn, SHCMD("st" " -e ncmpcpp") },
+	{ MODKEY,			                  XK_slash,	spawn,		SHCMD("mpc repeat") },
+	{ MODKEY|ShiftMask,		          XK_slash,	spawn,		SHCMD("mpc single") },
+	{ MODKEY,			                  XK_n,	        spawn,		SHCMD("notes") },
+	{ MODKEY,			                  XK_b,	        spawn,		SHCMD("emoji") },
+	{ MODKEY,			                  XK_v,	        spawn,		SHCMD("scmenu") },
+	{ MODKEY,			                  XK_c,	        spawn,		SHCMD("logout.sh") },
+	{ 0, XF86XK_AudioLowerVolume,   spawn, SHCMD("amixer set Master 5%-") },
+  { 0, XF86XK_AudioRaiseVolume,   spawn, SHCMD("amixer set Master 5%+") },
+  { 0, XF86XK_AudioMute,          spawn, SHCMD("amixer set Master toggle") },
 };
 
 /* button definitions */

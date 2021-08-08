@@ -16,6 +16,9 @@ static const char dmenufont[]       = "Sarasa Mono K:style=medium:size=12";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
+/* staticstatus */
+static const int statmonval = 0;
+
 /* tagging */
 static const char *tags[] = { "일", "이", "삼", "사", "오", "육" };
 

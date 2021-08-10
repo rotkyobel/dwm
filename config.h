@@ -2,8 +2,8 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int snap      = 20;       /* snap pixel */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 4;   /* systray spacing */
@@ -48,7 +48,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "HHH",      grid },
+	{ "[G]",      grid },
 	{ NULL,       NULL },
 };
 
@@ -115,25 +115,22 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,		          XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,		XK_q,      quit,           {0} },
 	/* CUSTOM */
-	{ MODKEY,			                  XK_m,		   spawn,		       SHCMD("st" " -e ncmpcpp-ueberzug") },
+	{ MODKEY,			XK_m,		   spawn,		       SHCMD("st" " -e ncmpcpp-ueberzug") },
 	{ 0, XF86XK_AudioPrev,	        spawn,                     SHCMD("mpc prev") },
 	{ 0, XF86XK_AudioNext,	        spawn,                     SHCMD("mpc next") },
 	{ 0, XF86XK_AudioPlay,	        spawn,                     SHCMD("mpc toggle") },
-	{ 0, XF86XK_Tools,	            spawn,                     SHCMD("st" " -e ncmpcpp") },
-	{ MODKEY,			                  XK_slash,	 spawn,		       SHCMD("mpc repeat") },
-	{ MODKEY|ShiftMask,		          XK_slash,	 spawn,		       SHCMD("mpc single") },
-	{ MODKEY,			                  XK_n,	     spawn,		       SHCMD("notes") },
-	{ MODKEY,			                  XK_b,	     spawn,		       SHCMD("emoji") },
-	{ MODKEY,			                  XK_v,	     spawn,		       SHCMD("scmenu") },
-	{ MODKEY,			                  XK_c,	     spawn,		       SHCMD("logout.sh") },
+	{ 0, XF86XK_Tools,	        spawn,                     SHCMD("st" " -e ncmpcpp") },
+	{ MODKEY,			XK_slash,	 spawn,		       SHCMD("mpc repeat") },
+	{ MODKEY|ShiftMask,		XK_slash,	 spawn,		       SHCMD("mpc single") },
+	{ MODKEY,			XK_n,	     spawn,		       SHCMD("notes") },
+	{ MODKEY,			XK_b,	     spawn,		       SHCMD("emoji") },
+	{ MODKEY,			XK_v,	     spawn,		       SHCMD("scmenu") },
+	{ MODKEY,			XK_c,	     spawn,		       SHCMD("logout.sh") },
 	{ 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-") },
-  { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
-  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
+        { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
+        { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
 };
 
 /* button definitions */

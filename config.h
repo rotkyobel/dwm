@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	{ "obs",             NULL,       NULL,       0,            1,           -1 },
 	{ "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
 	{ "firefox",         NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Code",            NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "discord",         NULL,       NULL,       1 << 5,       0,           -1 },
 	{ "gksu",            NULL,       NULL,       0,            1,           -1 },
 };
@@ -84,6 +85,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
         { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_f,	   zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
 	{ MODKEY,		        XK_q,      killclient,     {0} },

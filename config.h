@@ -6,13 +6,13 @@ static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 20;       /* snap pixel */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 4;   /* systray spacing */
+static const unsigned int systrayspacing = 5;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:style=medium:size=10", "Blobmoji:pixelsize=11:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Sarasa Mono K:style=medium:size=10";
+static const char *fonts[]          = { "Sarasa Mono K:style=medium:pixelsize=15", "Blobmoji:pixelsize=15:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Sarasa Mono K:style=medium:pixelsize=15";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -20,7 +20,7 @@ static const char dmenufont[]       = "Sarasa Mono K:style=medium:size=10";
 static const int statmonval = 0;
 
 /* tagging */
-static const char *tags[] = { "일", "이", "삼", "사", "오", "육" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -78,13 +78,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ Mod1Mask,                     XK_Tab,    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_g,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-        { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-        { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-        { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+  { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+  { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+  { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_f,	   zoom,           {0} },
 	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
@@ -93,15 +94,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[2]} },
-       	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
-        { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
+  { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_r,  	   togglefloating, {0} },
 	{ MODKEY,                       XK_space,  spawn,          SHCMD("rofi -show drun" ) },
 	{ MODKEY|ShiftMask,             XK_space,  spawn,          SHCMD("rofi -show drun -run-command 'gksu {cmd}'" ) },
 	{ MODKEY,			XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-        { MODKEY|ShiftMask,             XK_Tab,       shiftviewclients, { .i = +1 } },
+  { MODKEY|ShiftMask,             XK_Tab,       shiftviewclients, { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_backslash, shiftviewclients, { .i = -1 } },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -132,8 +133,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_v,	     spawn,		       SHCMD("scmenu") },
 	{ MODKEY,			XK_c,	     spawn,		       SHCMD("logout.sh") },
 	{ 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-") },
-        { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
-        { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
+  { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
+  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
 };
 
 /* button definitions */

@@ -2,17 +2,18 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
-static const unsigned int snap      = 20;       /* snap pixel */
+static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 5;   /* systray spacing */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:style=medium:pixelsize=15", "Blobmoji:pixelsize=15:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Sarasa Mono K:style=medium:pixelsize=15";
+static const char *fonts[]          = { "Sarasa Mono K:size=11:style=medium", "JetBrainsMono Nerd Font:size=11", "Blobmoji:pixelsize=11:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Sarasa Mono K:size=11:style=medium";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -20,7 +21,8 @@ static const char dmenufont[]       = "Sarasa Mono K:style=medium:pixelsize=15";
 static const int statmonval = 0;
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
+// static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7" };
+static const char *tags[] = { "", "", "", "ﬥ", "", "ﭮ", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -28,14 +30,16 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class             instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",            NULL,       NULL,       0,            1,           -1 },
-	{ "obs",             NULL,       NULL,       0,            1,           -1 },
-	{ "Pavucontrol",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",         NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "Mailspring",      NULL,       NULL,       1 << 4,       0,           -1 },
-	{ "Code",            NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "discord",         NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "gksu",            NULL,       NULL,       0,            1,           -1 },
+  /* class             instance    title       tags mask     isfloating   isterminal  noswallow  monitor */
+  { "Gimp",            NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "obs",             NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "Pavucontrol",     NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "gtksu",           NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "firefox",         NULL,       NULL,       1 << 0,       0,           0,          -1,        -1 },
+  { "Mailspring",      NULL,       NULL,       1 << 4,       0,           0,          -1,        -1 },
+  { "Code",            NULL,       NULL,       1 << 1,       0,           0,          -1,        -1 },
+  { "discord",         NULL,       NULL,       1 << 5,       0,           0,          -1,        -1 },
+  { "St",              NULL,       NULL,       0,            0,           1,           0,        -1 },
 };
 
 /* layout(s) */
@@ -99,7 +103,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_r,  	   togglefloating, {0} },
 	{ MODKEY,                       XK_space,  spawn,          SHCMD("rofi -show drun" ) },
-	{ MODKEY|ShiftMask,             XK_space,  spawn,          SHCMD("rofi -show drun -run-command 'gksu {cmd}'" ) },
+	{ MODKEY|ShiftMask,             XK_space,  spawn,          SHCMD("rofi -show drun -run-command 'gtksu {cmd}'" ) },
 	{ MODKEY,			XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
   { MODKEY|ShiftMask,             XK_Tab,       shiftviewclients, { .i = +1 } },
@@ -119,6 +123,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,		XK_q,      quit,           {0} },
 	/* CUSTOM */
 	{ MODKEY,			XK_m,		   spawn,		       SHCMD("st" " -e ncmpcpp-ueberzug") },

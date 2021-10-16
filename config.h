@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:size=11:style=medium", "JetBrainsMono Nerd Font:size=11", "Blobmoji:pixelsize=11:antialias=true:autohint=true"};
-static const char dmenufont[]       = "Sarasa Mono K:size=11:style=medium";
+static const char *fonts[]          = { "Sarasa Mono K:size=10:style=medium", "JetBrainsMono Nerd Font:size=10", "Blobmoji:pixelsize=10:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Sarasa Mono K:size=10:style=medium";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -22,7 +22,7 @@ static const int statmonval = 0;
 
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7" };
-static const char *tags[] = { "", "", "", "ﬥ", "", "ﭮ", "", "", "" };
+static const char *tags[] = { "", "", "", "ﬥ", "", "ﭮ", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,15 +31,18 @@ static const Rule rules[] = {
 	 */
 	/* class             instance    title       tags mask     isfloating   monitor */
   /* class             instance    title       tags mask     isfloating   isterminal  noswallow  monitor */
-  { "Gimp",            NULL,       NULL,       0,            1,           0,           0,        -1 },
-  { "obs",             NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "St",              NULL,       NULL,       0,            0,           1,           0,        -1 },
   { "Pavucontrol",     NULL,       NULL,       0,            1,           0,           0,        -1 },
   { "gtksu",           NULL,       NULL,       0,            1,           0,           0,        -1 },
+  { "obs",             NULL,       NULL,       0,            1,           0,          -1,        -1 },
   { "firefox",         NULL,       NULL,       1 << 0,       0,           0,          -1,        -1 },
-  { "Mailspring",      NULL,       NULL,       1 << 4,       0,           0,          -1,        -1 },
   { "Code",            NULL,       NULL,       1 << 1,       0,           0,          -1,        -1 },
+  { "Google-chrome",   NULL,       NULL,       1 << 2,       0,           0,          -1,        -1 },
+  { "Postman",         NULL,       NULL,       1 << 3,       0,           0,          -1,        -1 },
+  { "Mailspring",      NULL,       NULL,       1 << 4,       0,           0,          -1,        -1 },
   { "discord",         NULL,       NULL,       1 << 5,       0,           0,          -1,        -1 },
-  { "St",              NULL,       NULL,       0,            0,           1,           0,        -1 },
+  { "Steam",           NULL,       NULL,       1 << 6,       0,           0,          -1,        -1 },
+  { "qBittorrent",     NULL,       NULL,       1 << 8,       0,           0,          -1,        -1 },
 };
 
 /* layout(s) */

@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:size=10:style=medium", "JetBrainsMono Nerd Font:size=10", "Blobmoji:pixelsize=10:antialias=true:autohint=true"};
-static const char dmenufont[]       = "Sarasa Mono K:size=10:style=medium";
+static const char *fonts[]          = { "Sarasa Mono K:size=11", "JetBrainsMono Nerd Font:size=11", "Blobmoji:pixelsize=11:antialias=true:autohint=true"};
+static const char dmenufont[]       = "Sarasa Mono K:size=11";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -29,20 +29,21 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class             instance    title       tags mask     isfloating   monitor */
-  /* class             instance    title       tags mask     isfloating   isterminal  noswallow  monitor */
-  { "St",              NULL,       NULL,       0,            0,           1,           0,        -1 },
-  { "Pavucontrol",     NULL,       NULL,       0,            1,           0,           0,        -1 },
-  { "gtksu",           NULL,       NULL,       0,            1,           0,           0,        -1 },
-  { "obs",             NULL,       NULL,       0,            1,           0,          -1,        -1 },
-  { "firefox",         NULL,       NULL,       1 << 0,       0,           0,          -1,        -1 },
-  { "Code",            NULL,       NULL,       1 << 1,       0,           0,          -1,        -1 },
-  { "Google-chrome",   NULL,       NULL,       1 << 2,       0,           0,          -1,        -1 },
-  { "Postman",         NULL,       NULL,       1 << 3,       0,           0,          -1,        -1 },
-  { "Mailspring",      NULL,       NULL,       1 << 4,       0,           0,          -1,        -1 },
-  { "discord",         NULL,       NULL,       1 << 5,       0,           0,          -1,        -1 },
-  { "Steam",           NULL,       NULL,       1 << 6,       0,           0,          -1,        -1 },
-  { "qBittorrent",     NULL,       NULL,       1 << 8,       0,           0,          -1,        -1 },
+	/* class             instance    title            tags mask     isfloating   monitor */
+  /* class             instance    title            tags mask     isfloating   isterminal  noswallow  monitor */
+  { "St",              NULL,       NULL,            0,            0,           1,           0,        -1 },
+  { NULL,              NULL,       "Event Tester",  0,            0,           0,           1,        -1 }, /* xev */
+  { "Pavucontrol",     NULL,       NULL,            0,            1,           0,           0,        -1 },
+  { "gtksu",           NULL,       NULL,            0,            1,           0,           0,        -1 },
+  { "obs",             NULL,       NULL,            0,            1,           0,          -1,        -1 },
+  { "firefox",         NULL,       NULL,            1 << 0,       0,           0,          -1,        -1 },
+  { "Code",            NULL,       NULL,            1 << 1,       0,           0,          -1,        -1 },
+  { "Google-chrome",   NULL,       NULL,            1 << 2,       0,           0,          -1,        -1 },
+  { "Postman",         NULL,       NULL,            1 << 3,       0,           0,          -1,        -1 },
+  { "Mailspring",      NULL,       NULL,            1 << 4,       0,           0,          -1,        -1 },
+  { "discord",         NULL,       NULL,            1 << 5,       0,           0,          -1,        -1 },
+  { "Steam",           NULL,       NULL,            1 << 6,       0,           0,          -1,        -1 },
+  { "qBittorrent",     NULL,       NULL,            1 << 8,       0,           0,          -1,        -1 },
 };
 
 /* layout(s) */
@@ -81,70 +82,55 @@ static const char *termcmd[]  = { "st", NULL };
 
 #include <X11/XF86keysym.h>
 static Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ Mod1Mask,                     XK_Tab,    focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_g,      togglebar,      {0} },
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-  { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-  { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-  { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
-	{ MODKEY,                       XK_f,	   zoom,           {0} },
-	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
-	{ MODKEY,		        XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
-  { MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_r,  	   togglefloating, {0} },
-	{ MODKEY,                       XK_space,  spawn,          SHCMD("rofi -show drun" ) },
-	{ MODKEY|ShiftMask,             XK_space,  spawn,          SHCMD("rofi -show drun -run-command 'gtksu {cmd}'" ) },
-	{ MODKEY,			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-  { MODKEY|ShiftMask,             XK_Tab,       shiftviewclients, { .i = +1 } },
-	{ MODKEY|ShiftMask,             XK_backslash, shiftviewclients, { .i = -1 } },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,			XK_minus,  setgaps,	       {.i = -1 } },
-	{ MODKEY,			XK_equal,  setgaps,	       {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_equal,  setgaps,	       {.i =  0 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,		XK_q,      quit,           {0} },
-	/* CUSTOM */
-	{ MODKEY,			XK_m,		   spawn,		       SHCMD("st" " -e ncmpcpp-ueberzug") },
-	{ 0, XF86XK_AudioPrev,	        spawn,                     SHCMD("mpc prev") },
-	{ 0, XF86XK_AudioNext,	        spawn,                     SHCMD("mpc next") },
-	{ 0, XF86XK_AudioPlay,	        spawn,                     SHCMD("mpc toggle") },
-	{ 0, XF86XK_Tools,	        spawn,                     SHCMD("st" " -e ncmpcpp") },
-	{ MODKEY,			XK_slash,	 spawn,		       SHCMD("mpc repeat") },
-	{ MODKEY|ShiftMask,		XK_slash,	 spawn,		       SHCMD("mpc single") },
-	{ MODKEY,			XK_n,	     spawn,		       SHCMD("notes") },
-	{ MODKEY,			XK_b,	     spawn,		       SHCMD("emoji") },
-	{ MODKEY,			XK_v,	     spawn,		       SHCMD("scmenu") },
-	{ MODKEY,			XK_c,	     spawn,		       SHCMD("logout.sh") },
-	{ 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-") },
-  { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
-  { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
+	/* modifier                     key             function            argument */
+	{ MODKEY,                       XK_l,           setmfact,           {.f = +0.05} },
+	{ MODKEY,                       XK_k,           focusstack,         {.i = -1} },
+	{ MODKEY,                       XK_j,           focusstack,         {.i = +1} },
+	{ MODKEY,                       XK_h,           setmfact,           {.f = -0.05} },
+	{ Mod1Mask,                     XK_Tab,         focusstack,         {.i = +1} },
+	{ MODKEY,                       XK_g,           togglebar,          {0} },
+	{ MODKEY,                       XK_f,	          zoom,               {0} },
+	{ MODKEY,                       XK_d,           incnmaster,         {.i = -1} },
+	{ MODKEY,                       XK_s,           incnmaster,         {.i = +1} },
+	{ MODKEY,		                    XK_q,           killclient,         {0} },
+	{ MODKEY,                       XK_w,           setlayout,          {.v = &layouts[0]} },
+	{ MODKEY,                       XK_e,           setlayout,          {.v = &layouts[1]} },
+	{ MODKEY,                       XK_r,           setlayout,          {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_r,  	        togglefloating,     {0} },
+	{ MODKEY,                       XK_t,           setlayout,          {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_j,           rotatestack,        {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_k,           rotatestack,        {.i = -1} },
+  { MODKEY|ShiftMask,             XK_h,           setcfact,           {.f = +0.25} },
+  { MODKEY|ShiftMask,             XK_l,           setcfact,           {.f = -0.25} },
+  { MODKEY|ShiftMask,             XK_o,           setcfact,           {.f =  0.00} },
+	{ MODKEY|ShiftMask,             XK_f,           fullscreen,         {0} },
+  { MODKEY|ControlMask,	        	XK_comma,       cyclelayout,        {.i = -1} },
+	{ MODKEY|ControlMask,           XK_period,      cyclelayout,        {.i = +1} },
+	{ MODKEY,                       XK_comma,       focusmon,           {.i = -1} },
+	{ MODKEY,                       XK_period,      focusmon,           {.i = +1} },
+	{ MODKEY|ShiftMask,             XK_comma,       tagmon,             {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_period,      tagmon,             {.i = +1} },
+	{ MODKEY,                       XK_space,       spawn,              SHCMD("rofi -show drun") },
+	{ MODKEY|ShiftMask,             XK_space,       spawn,              SHCMD("rofi -show drun -run-command 'gtksu {cmd}'") },
+	{ MODKEY,			                  XK_Return,      spawn,              {.v = termcmd} },
+	{ MODKEY,                       XK_Tab,         view,               {0} },
+  { MODKEY|ShiftMask,             XK_Tab,         shiftviewclients,   { .i = +1} },
+	{ MODKEY|ShiftMask,             XK_backslash,   shiftviewclients,   { .i = -1} },
+	{ MODKEY,                       XK_0,           view,               {.ui = ~0} },
+	{ MODKEY|ShiftMask,             XK_0,           tag,                {.ui = ~0} },
+	{ MODKEY,			                  XK_minus,       setgaps,	          {.i = -1} },
+	{ MODKEY,			                  XK_equal,       setgaps,	          {.i = +1} },
+	{ MODKEY|ShiftMask,		          XK_equal,       setgaps,	          {.i =  0} },
+	TAGKEYS(                        XK_1,                               0)
+	TAGKEYS(                        XK_2,                               1)
+	TAGKEYS(                        XK_3,                               2)
+	TAGKEYS(                        XK_4,                               3)
+	TAGKEYS(                        XK_5,                               4)
+	TAGKEYS(                        XK_6,                               5)
+	TAGKEYS(                        XK_7,                               6)
+	TAGKEYS(                        XK_8,                               7)
+	TAGKEYS(                        XK_9,                               8)
+	{ MODKEY|ShiftMask,		          XK_q,           quit,               {0} },
 };
 
 /* button definitions */

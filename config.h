@@ -89,10 +89,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,           setmfact,           {.f = -0.05} },
 	{ Mod1Mask,                     XK_Tab,         focusstack,         {.i = +1} },
 	{ MODKEY,                       XK_g,           togglebar,          {0} },
-	{ MODKEY,                       XK_f,	          zoom,               {0} },
+	{ MODKEY,                       XK_f,	        zoom,               {0} },
 	{ MODKEY,                       XK_d,           incnmaster,         {.i = -1} },
 	{ MODKEY,                       XK_s,           incnmaster,         {.i = +1} },
-	{ MODKEY,		                    XK_q,           killclient,         {0} },
+	{ MODKEY,		        XK_q,           killclient,         {0} },
 	{ MODKEY,                       XK_w,           setlayout,          {.v = &layouts[0]} },
 	{ MODKEY,                       XK_e,           setlayout,          {.v = &layouts[1]} },
 	{ MODKEY,                       XK_r,           setlayout,          {.v = &layouts[2]} },
@@ -100,11 +100,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,           setlayout,          {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_j,           rotatestack,        {.i = +1} },
 	{ MODKEY|ShiftMask,             XK_k,           rotatestack,        {.i = -1} },
-  { MODKEY|ShiftMask,             XK_h,           setcfact,           {.f = +0.25} },
-  { MODKEY|ShiftMask,             XK_l,           setcfact,           {.f = -0.25} },
-  { MODKEY|ShiftMask,             XK_o,           setcfact,           {.f =  0.00} },
+  	{ MODKEY|ShiftMask,             XK_h,           setcfact,           {.f = +0.25} },
+  	{ MODKEY|ShiftMask,             XK_l,           setcfact,           {.f = -0.25} },
+  	{ MODKEY|ShiftMask,             XK_o,           setcfact,           {.f =  0.00} },
 	{ MODKEY|ShiftMask,             XK_f,           fullscreen,         {0} },
-  { MODKEY|ControlMask,	        	XK_comma,       cyclelayout,        {.i = -1} },
+  	{ MODKEY|ControlMask,	        XK_comma,       cyclelayout,        {.i = -1} },
 	{ MODKEY|ControlMask,           XK_period,      cyclelayout,        {.i = +1} },
 	{ MODKEY,                       XK_comma,       focusmon,           {.i = -1} },
 	{ MODKEY,                       XK_period,      focusmon,           {.i = +1} },
@@ -112,25 +112,25 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,      tagmon,             {.i = +1} },
 	{ MODKEY,                       XK_space,       spawn,              SHCMD("rofi -show drun") },
 	{ MODKEY|ShiftMask,             XK_space,       spawn,              SHCMD("rofi -show drun -run-command 'gtksu {cmd}'") },
-	{ MODKEY,			                  XK_Return,      spawn,              {.v = termcmd} },
+	{ MODKEY,			XK_Return,      spawn,              {.v = termcmd} },
 	{ MODKEY,                       XK_Tab,         view,               {0} },
-  { MODKEY|ShiftMask,             XK_Tab,         shiftviewclients,   { .i = +1} },
+  	{ MODKEY|ShiftMask,             XK_Tab,         shiftviewclients,   { .i = +1} },
 	{ MODKEY|ShiftMask,             XK_backslash,   shiftviewclients,   { .i = -1} },
 	{ MODKEY,                       XK_0,           view,               {.ui = ~0} },
 	{ MODKEY|ShiftMask,             XK_0,           tag,                {.ui = ~0} },
-	{ MODKEY,			                  XK_minus,       setgaps,	          {.i = -1} },
-	{ MODKEY,			                  XK_equal,       setgaps,	          {.i = +1} },
-	{ MODKEY|ShiftMask,		          XK_equal,       setgaps,	          {.i =  0} },
-	TAGKEYS(                        XK_1,                      					0)
-	TAGKEYS(                        XK_2,                      					1)
-	TAGKEYS(                        XK_3,                      					2)
-	TAGKEYS(                        XK_4,                      					3)
-	TAGKEYS(                        XK_5,                      					4)
-	TAGKEYS(                        XK_6,                      					5)
-	TAGKEYS(                        XK_7,                      					6)
-	TAGKEYS(                        XK_8,                      					7)
-	TAGKEYS(                        XK_9,                      					8)
-	{ MODKEY|ShiftMask,		          XK_q,           quit,               {0} },
+	{ MODKEY,			XK_minus,       setgaps,	    {.i = -1} },
+	{ MODKEY,			XK_equal,       setgaps,	    {.i = +1} },
+	{ MODKEY|ShiftMask,		XK_equal,       setgaps,	    {.i =  0} },
+	TAGKEYS(                        XK_1,                      	    0)
+	TAGKEYS(                        XK_2,                      	    1)
+	TAGKEYS(                        XK_3,                      	    2)
+	TAGKEYS(                        XK_4,                               3)
+	TAGKEYS(                        XK_5,                      	    4)
+	TAGKEYS(                        XK_6,                         	    5)
+	TAGKEYS(                        XK_7,                      	    6)
+	TAGKEYS(                        XK_8,                      	    7)
+	TAGKEYS(                        XK_9,                               8)
+	{ MODKEY|ShiftMask,		XK_q,           quit,               {0} },
 };
 
 /* button definitions */

@@ -12,7 +12,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:pixelsize=13:style=medium", "JetBrainsMono Nerd Font:pixelsize=13:style=medium" };
+static const char *fonts[]          = { "Sarasa Mono K:pixelsize=13:style=medium", "JetBrainsMono Nerd Font:pixelsize=13:style=medium", "JoyPixels:pixelsize=11:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Sarasa Mono K:pixelsize=13:style=medium";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"

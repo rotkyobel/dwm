@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 24;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Sarasa Mono K:pixelsize=14:style=semibold", "JetBrainsMono Nerd Font:pixelsize=14:style=medium", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Sarasa Mono K:pixelsize=14:style=semibold";
+static const char *fonts[]          = { "Sarasa Term SC:pixelsize=14:style=semibold", "JetBrainsMono Nerd Font:pixelsize=14:style=medium", "JoyPixels:pixelsize=12:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Sarasa Term SC:pixelsize=14:style=semibold";
 
 #include "/home/hw/.cache/wal/colors-wal-dwm.h"
 
@@ -38,11 +38,12 @@ static const Rule rules[] = {
   { "obs",             NULL,       NULL,            0,            1,           0,          -1,        -1 },
   { "firefox",         NULL,       NULL,            1 << 0,       0,           0,          -1,        -1 },
   { "Code",            NULL,       NULL,            1 << 1,       0,           0,          -1,        -1 },
-  { "Google-chrome",   NULL,       NULL,            1 << 2,       0,           0,          -1,        -1 },
+  { "Chromium",        NULL,       NULL,            1 << 2,       0,           0,          -1,        -1 },
   { "Postman",         NULL,       NULL,            1 << 3,       0,           0,          -1,        -1 },
   { "Mailspring",      NULL,       NULL,            1 << 4,       0,           0,          -1,        -1 },
   { "discord",         NULL,       NULL,            1 << 5,       0,           0,          -1,        -1 },
   { "Steam",           NULL,       NULL,            1 << 6,       0,           0,          -1,        -1 },
+  { "Kodi",            NULL,       NULL,            1 << 7,       0,           0,          -1,        -1 },
   { "qBittorrent",     NULL,       NULL,            1 << 8,       0,           0,          -1,        -1 },
 };
 
